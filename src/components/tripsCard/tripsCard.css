@@ -1,0 +1,13 @@
+.trips-container {
+    position: relative;
+}
+
+.gallery  {
+    display: grid;  
+    list-style-type: none;
+    padding: 0;
+    margin: 3rem 0;
+    grid-gap: 2rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-flow: dense;
+}

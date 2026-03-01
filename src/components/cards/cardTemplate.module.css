@@ -1,0 +1,160 @@
+/* cardTemplate.module.css */
+
+.card h2,
+.card h3,
+.card .price {
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+}
+
+.card h2 {
+    color: #151618;
+    font-size: 3.0625rem;
+    font-weight: 700;
+    line-height: 120%;
+    margin: 2rem 0;
+}
+
+.card h3 {
+    font-size: 2.1875rem;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.price {
+    font-variant-numeric: lining-nums proportional-nums;
+    line-height: 120%;
+    font-size: 1.5625rem;
+}
+
+.card header p {
+    font-size: 1.125rem;
+}
+
+.card figure,
+.card .small {
+    color: #fff;
+}
+
+.card figure h3 + p {
+    font-size: 0.8125rem;
+}
+
+.card figure footer .small {
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.card figure > img:first-of-type {
+    width: 20rem;
+    height: 23rem;
+    object-fit: cover;
+}
+
+.header {
+    margin-bottom: 7.5rem;
+    max-width: 75%;
+}
+
+.card figure {
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    width: 20rem;
+}
+
+.caption {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    padding: 4rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 2rem;
+    z-index: 1;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 2rem;
+}
+
+.card figure p {
+    margin: 0;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer img {
+    width: auto;
+}
+
+.main,
+.footer {
+    opacity: 0;
+}
+
+.card figure:hover .caption {
+    background: linear-gradient(180deg, rgba(21, 22, 24, 0.24) 0%, #151618 100%);
+}
+
+.card figure:hover .main,
+.card figure:hover .footer {
+    opacity: 1;
+}
+
+.caption::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(21, 22, 24, 0.24) 0%, #151618 100%);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.card figure:hover .caption::before {
+    opacity: 1;
+}
+
+.card figure img {
+    transform: scale(1.2);
+    transition: transform 0.4s ease-in-out;
+}
+
+.card figure img:hover {
+    transform: scale(1);
+}
+
+.main {
+    transform: translate3d(0, -6rem, 0);
+    transition: all 0.4s ease-in-out;
+}
+
+.footer {
+    transform: translate3d(0, 6rem, 0);
+    transition: all 0.4s ease-in-out;
+}
+
+.card figure:hover .main,
+.card figure:hover .footer {
+    transform: translate3d(0, 0, 0);
+} 
+
+.arrowIcon {
+    transform: translate3d(0, -3rem, 0) rotate(180deg);
+    opacity: 0;
+    transition: all 0.5s ease-in;
+}
+
+.card figure:hover .arrowIcon {
+    transform: translate3d(0, 0, 0) rotate(0);
+    opacity: 1;
+}
