@@ -14,9 +14,9 @@ const Hero = () => {
     const updateViewBox = () => {
       const width = window.innerWidth;
       if (width < 768) {
-        setViewBox("0 0 800 600"); // Mobile
+        setViewBox("0 -100 1200 750"); // Mobile
       } else if (width < 1024) {
-        setViewBox("0 0 1000 700"); // Tablet
+        setViewBox("0 0 1200 700"); // Tablet
       } else {
         setViewBox("0 0 1200 800"); // Desktop
       }
@@ -74,18 +74,18 @@ const Hero = () => {
           </mask>
           
           <image className="sky" xlinkHref="https://assets.codepen.io/721952/sky.jpg" width="1400" height="800" />
-          <image className="mountBg" xlinkHref="/Hero_images/1.png" width="1200" height="700" y="250" x="-100"/>    
+          <image className="mountBg" xlinkHref="/Hero_images/1.png" width="1200" height="500" y="200" x="-250"/>    
           <image className="mountMg" xlinkHref="" width="1200" height="800"/>    
           <image className="cloud2" xlinkHref="https://assets.codepen.io/721952/cloud2.png" width="1200" height="800"/>    
-          <image className="mountFg" xlinkHref="/Hero_images/3.png" width="2200" height="800" y="50"/>
+          <image className="mountFg" xlinkHref="/Hero_images/3.png" width="2200" height="800" y="-50"/>
           <image className="cloud1" xlinkHref="https://assets.codepen.io/721952/cloud1.png" width="1200" height="800"/>
           <image className="cloud3" xlinkHref="https://assets.codepen.io/721952/cloud3.png" width="1200" height="800"/>
-          <text fill="#fff" x="350" y="300">WITAMY</text>
+          <text fill="#fff" x="450" y="200">WITAMY</text>
           <polyline className="arrow" fill="#fff" points="599,250 599,289 590,279 590,282 600,292 610,282 610,279 601,289 601,250" />
           
           <g mask="url(#m)">
             <rect fill="#fff" width="100%" height="100%" />      
-            <text x="350" y="300" fill="#162a43">W CHINACH</text>
+            <text x="420" y="200" fill="#162a43">W CHINACH</text>
           </g>
           
           <rect id="arrow-btn" width="100" height="100" opacity="0" x="550" y="220" style={{cursor: "pointer"}}/>
