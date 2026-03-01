@@ -8,6 +8,7 @@ import FAQS from "../pages/faqs/FAQS";
 import Contact from "../pages/contact/Contact";
 import PageRouting from "../pages/PageRouting";
 import FooterComponent from "../components/footer/FooterComponent";
+import LastTrips from "../pages/lastTrips/LastTrips"
 
 export { NavigationBar, TripsCard, CardTemplate, Hero, 
-         Home, About, FAQS, Contact, PageRouting, FooterComponent, }
+         Home, About, FAQS, Contact, PageRouting, FooterComponent, LastTrips}

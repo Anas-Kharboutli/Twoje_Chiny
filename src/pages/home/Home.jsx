@@ -1,8 +1,10 @@
 import { Hero, TripsCard } from "../../utils/exports"
 const Home = () => {
   return (
-   
-  <Hero />
+   <>
+     <Hero />
+  
+   </>
 
   )
 }

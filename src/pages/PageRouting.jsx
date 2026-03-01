@@ -1,4 +1,4 @@
-import { Home, About, FAQS, Contact } from "../utils/exports";
+import { Home, About, FAQS, Contact, LastTrips } from "../utils/exports";
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from "react";
 
@@ -16,10 +16,11 @@ export const ScrollToTop = () => {
 const PageRouting = () => {
   return (
     <Routes>
-        <Route path="/"         element={<Home />}>   </Route>
-        <Route path="/about-us" element={<About />}>  </Route>
-        <Route path="/faqs"     element={<FAQS />}>   </Route>
-        <Route path="/contact"  element={<Contact />}></Route>
+        <Route path="/"            element={<Home />}>       </Route>
+         <Route path="/last-trips" element={<LastTrips />}>  </Route>
+        <Route path="/about-us"    element={<About />}>      </Route>
+        <Route path="/faqs"        element={<FAQS />}>       </Route>
+        <Route path="/contact"     element={<Contact />}>    </Route>
     </Routes> 
   )
 }
