@@ -1,5 +1,5 @@
 import styles from "./hero.module.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
@@ -11,6 +11,9 @@ const Hero = () => {
     width: window.innerWidth,
     height: window.innerHeight
   });
+  
+  const timelineRef = useRef(null);
+  const resizeTimeoutRef = useRef(null);
 
   // Calculate responsive values based on screen size
   const getResponsiveValues = () => {
@@ -29,10 +32,10 @@ const Hero = () => {
         y: 0
       },
       mountBg: {
-        width: isMobile ? 700 : isTablet ? 750 : 900,
-        height: isMobile ? 400 : isTablet ? 425 : 500,
-        x: isMobile ? -80 : isTablet ? -75 : -100,
-        y: isMobile ? 200 : isTablet ? 125 : 150
+        width: isMobile ? 600 : isTablet ? 750 : 900,
+        height: isMobile ? 350 : isTablet ? 425 : 500,
+        x: isMobile ? -50 : isTablet ? -75 : -100,
+        y: isMobile ? 100 : isTablet ? 125 : 150
       },
       mountMg: {
         width: isMobile ? 800 : isTablet ? 1000 : 1200,
@@ -41,10 +44,10 @@ const Hero = () => {
         y: 0
       },
       mountFg: {
-        width: isMobile ? 1200 : isTablet ? 1800 : 2200,
-        height: isMobile ? 500 : isTablet ? 700 : 800,
-        x: 120,
-        y: isMobile ? 100 : isTablet ? -40 : -50
+        width: isMobile ? 1400 : isTablet ? 1800 : 2200,
+        height: isMobile ? 600 : isTablet ? 700 : 800,
+        x: 0,
+        y: isMobile ? -30 : isTablet ? -40 : -50
       },
       clouds: {
         width: isMobile ? 800 : isTablet ? 1000 : 1200,
@@ -57,13 +60,13 @@ const Hero = () => {
       maskRectY: isMobile ? 500 : isTablet ? 650 : 799,
       
       // Text positions
-      textX: isMobile ? 400 : isTablet ? 250 : 450,
-      textY: isMobile ? 220 : isTablet ? 275 : 180,
-      fontSize: isMobile ? 45 : isTablet ? 60 : 72,
+      textX: isMobile ? 250 : isTablet ? 250 : 450,
+      textY: isMobile ? 400 : isTablet ? 275 : 180,
+      fontSize: isMobile ? 40 : isTablet ? 60 : 72,
       
       // Arrow positions
       arrowX: isMobile ? 400 : isTablet ? 500 : 620,
-      arrowY: isMobile ? 220 : isTablet ? 200 : 220,
+      arrowY: isMobile ? 320 : isTablet ? 200 : 220,
       
       // Animation distances (scale down on smaller screens)
       skyY: isMobile ? -100 : -200,
@@ -79,37 +82,56 @@ const Hero = () => {
   const responsive = getResponsiveValues();
 
   useEffect(() => {
-    // Handle window resize
+    // Create GSAP timeline
+    const createTimeline = () => {
+      // Kill existing timeline if it exists
+      if (timelineRef.current) {
+        timelineRef.current.kill();
+      }
+
+      timelineRef.current = gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: '.scrollDist',
+            start: '0 0',
+            end: '100% 100%',
+            scrub: 1,
+            invalidateOnRefresh: true
+          }
+        })
+        .fromTo('.sky', {y: 0}, {y: responsive.skyY}, 0)
+        .fromTo('.cloud1', {y: 100}, {y: responsive.cloud1Y}, 0)
+        .fromTo('.cloud2', {y: -150}, {y: responsive.cloud2Y}, 0)
+        .fromTo('.cloud3', {y: -50}, {y: responsive.cloud3Y}, 0)
+        .fromTo('.mountBg', {y: -10}, {y: responsive.mountBgY}, 0)
+        .fromTo('.mountMg', {y: -30}, {y: responsive.mountMgY}, 0)
+        .fromTo('.mountFg', {y: -50}, {y: responsive.mountFgY}, 0);
+    };
+
+    createTimeline();
+
+    // Handle window resize with debounce
     const handleResize = () => {
-      setDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight
-      });
-      
-      // Refresh ScrollTrigger on resize
-      ScrollTrigger.refresh();
+      // Clear existing timeout
+      if (resizeTimeoutRef.current) {
+        clearTimeout(resizeTimeoutRef.current);
+      }
+
+      // Debounce resize
+      resizeTimeoutRef.current = setTimeout(() => {
+        setDimensions({
+          width: window.innerWidth,
+          height: window.innerHeight
+        });
+        
+        // Refresh ScrollTrigger
+        ScrollTrigger.refresh();
+      }, 150); // Wait 150ms after resize stops
     };
 
     window.addEventListener('resize', handleResize);
 
-    // GSAP animations with responsive values
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: '.scrollDist',
-          start: '0 0',
-          end: '100% 100%',
-          scrub: 1
-        }
-      })
-      .fromTo('.sky', {y: 0}, {y: responsive.skyY}, 0)
-      .fromTo('.cloud1', {y: 100}, {y: responsive.cloud1Y}, 0)
-      .fromTo('.cloud2', {y: -150}, {y: responsive.cloud2Y}, 0)
-      .fromTo('.cloud3', {y: -50}, {y: responsive.cloud3Y}, 0)
-      .fromTo('.mountBg', {y: -10}, {y: responsive.mountBgY}, 0)
-      .fromTo('.mountMg', {y: -30}, {y: responsive.mountMgY}, 0)
-      .fromTo('.mountFg', {y: -50}, {y: responsive.mountFgY}, 0);
-
+    // Arrow button interactions
     const arrowBtn = document.querySelector('#arrow-btn');
 
     const handleMouseEnter = () => {
@@ -132,14 +154,20 @@ const Hero = () => {
 
     return () => {
       window.removeEventListener('resize', handleResize);
+      if (resizeTimeoutRef.current) {
+        clearTimeout(resizeTimeoutRef.current);
+      }
       if (arrowBtn) {
         arrowBtn.removeEventListener('mouseenter', handleMouseEnter);
         arrowBtn.removeEventListener('mouseleave', handleMouseLeave);
         arrowBtn.removeEventListener('click', handleClick);
       }
+      if (timelineRef.current) {
+        timelineRef.current.kill();
+      }
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-  }, [dimensions]);
+  }, [responsive.skyY, responsive.cloud1Y, responsive.cloud2Y, responsive.cloud3Y, responsive.mountBgY, responsive.mountMgY, responsive.mountFgY]); // Only re-run when animation values change
 
   return (
     <>
