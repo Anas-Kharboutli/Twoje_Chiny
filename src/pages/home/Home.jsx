@@ -3,6 +3,7 @@ const Home = () => {
   return (
    <>
      <Hero />
+     <TripsCard />
   
    </>
 

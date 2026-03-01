@@ -6,6 +6,7 @@ export const card = [
         country: "Szlakiem przygód i przypraw",
         placeDescription: "Pola ryzowe, Miasto Feniksa, Góry Awatara, Sichuan",
         tripPrice: "€2,500",
+        tripLink: "/trip01"
     },
     {
         imgURL: "/src/assets/destinations-images/gallery-2.jpg",
@@ -14,6 +15,7 @@ export const card = [
         country: "Kraina Wiecznej Wiosny",
         placeDescription: "",
         tripPrice: "€1,200",
+        tripLink: "/trip01"
     },
     {
         imgURL: "/src/assets/destinations-images/gallery-3.jpg",
@@ -22,6 +24,7 @@ export const card = [
         country: "Shenzhen, Hong Kong,",
         placeDescription: "Drapacze chmur, kasyna i wyspy",
         tripPrice: "€2,200",
+        tripLink: "/trip01"
     },
     {
         imgURL: "/src/assets/destinations-images/gallery-4.jpg",
@@ -30,6 +33,7 @@ export const card = [
         country: "Odkryj Egzotykę Azji: Wycieczka Marzeń",
         placeDescription: "Shenzhen, Kanton, Manila, Boracay",
         tripPrice: "€3,200",
+        tripLink: "/trip01"
     },
     {
         imgURL: "/src/assets/destinations-images/gallery-5.jpg",
@@ -38,6 +42,7 @@ export const card = [
         country: "Chiny",
         placeDescription: "Między Nowoczesnością a Historią",
         tripPrice: "€1,600",
+        tripLink: "/trip01"
     },
     {
         imgURL: "/src/assets/destinations-images/gallery-6.jpg",
@@ -46,6 +51,7 @@ export const card = [
         country: "Chiny",
         placeDescription: "Biznesowa Trasa po Hurtowych Rynkach Chin: Od Pekinu do Shenzhen",
         tripPrice: "€3,000",
+        tripLink: "/trip01"
     },
 ];
 

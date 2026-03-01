@@ -1,7 +1,7 @@
-import React, {useRef} from 'react';
+import {useRef} from 'react';
 import { card } from '../../utils/cards_data';
 import { CardTemplate } from "../../utils/exports";
-import './tripsCard.css';
+import styles from "./tripsCard.module.css"
 import { motion, useInView } from 'framer-motion';
 
 const TripsCard = () => {
@@ -13,12 +13,12 @@ const TripsCard = () => {
     animate: { y: 0,  opacity: 1}    
   };
 
-  return (
+  return ( 
     <div 
-    className='trips-container section__padding'
+    className={styles["trips-container"]}
     ref={ref}>
 
-      <ul className="gallery">
+      <ul className={styles.gallery}>
 		{
 		  card.map((card, index) => (
 				
@@ -36,6 +36,7 @@ const TripsCard = () => {
 				country={card.country}
 				placeDescription={card.placeDescription}
 				tripPrice={card.tripPrice}
+        tripLink={card.tripLink}
 				/>
 				</motion.li>
 			))

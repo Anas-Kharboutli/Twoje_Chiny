@@ -1,29 +1,29 @@
 import styles from "./cardTemplate.module.css";
+import { Link } from "react-router-dom";
 
-const CardTemplate = ({imgURL, tripDuration, placeName, country, placeDescription, tripPrice}) => {
+const CardTemplate = ({imgURL, tripDuration, placeName, 
+                       country, placeDescription, tripPrice, tripLink}) => {
   return (
-    <div className={styles.card}>
-      <figure>
-        <img src={imgURL} alt={country}/>
-        <figcaption className={styles.caption}>
-          <main className={styles.main}>
-            <p className={styles.small}>{tripDuration}</p>
-            <h3>{placeName} <em>{country}</em></h3>
-            <p>{placeDescription}</p>
-          </main>
+    <figure className={styles.figure}>
+      <img src={imgURL} alt={country} className={styles.cardImage}/>
+      <figcaption className={styles.figcaption}>
+        <div className={styles.main}>
+          <p className={styles.small}>{tripDuration}</p>
+          <h3 className={styles.h3}>{placeName} <em>{country}</em></h3>
+          <p className={styles.description}>{placeDescription}</p>
+        </div>
 
-          <footer className={styles.footer}>
-            <div>
-              <p className={styles.small}>From</p>
-              <p className={styles.price}>{tripPrice}</p>
-            </div>
-            <img src="/src/assets/destinations-images/icon-arrow-right-color.svg" 
-			className={styles.arrowIcon}
-			alt="Icon"/>
-          </footer>
-        </figcaption>
-      </figure>
-    </div>
+        <div className={styles.footer}>
+          <div className={styles.priceContainer}>
+            <p className={styles.small}>From</p>
+            <p className={styles.price}>{tripPrice}</p>
+          </div>
+          <Link to={tripLink} className={styles.arrowLink}>
+            <img src="/src/assets/destinations-images/icon-arrow-right-color.svg" alt="Icon" className={styles.arrow}/>
+          </Link>
+        </div>
+      </figcaption>
+    </figure>
   )
 }
 
