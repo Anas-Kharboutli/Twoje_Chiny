@@ -1,6 +1,6 @@
 export const card = [
     {
-        imgURL: "/src/assets/destinations-images/gallery-1.jpg",
+        imgURL: "/destinations-images/gallery-1.jpg",
         tripDuration: "3-15 WRZEŚNIA",
         placeName: "Południowe Chiny",
         country: "Szlakiem przygód i przypraw",
@@ -9,7 +9,7 @@ export const card = [
         tripLink: "/trip01"
     },
     {
-        imgURL: "/src/assets/destinations-images/gallery-2.jpg",
+        imgURL: "/destinations-images/gallery-2.jpg",
         tripDuration: "13-26 PAŹDZIERNIKA",
         placeName: "Shaolin Kung Fu,",
         country: "Kraina Wiecznej Wiosny",
@@ -18,7 +18,7 @@ export const card = [
         tripLink: "/trip01"
     },
     {
-        imgURL: "/src/assets/destinations-images/gallery-3.jpg",
+        imgURL: "/destinations-images/gallery-3.jpg",
         tripDuration: "1-14 LISTOPADA",
         placeName: "Metropolie i Tropiki,",
         country: "Shenzhen, Hong Kong,",
@@ -27,7 +27,7 @@ export const card = [
         tripLink: "/trip01"
     },
     {
-        imgURL: "/src/assets/destinations-images/gallery-4.jpg",
+        imgURL: "/destinations-images/gallery-4.jpg",
         tripDuration: "6-17 GRUDNIA",
         placeName: "HIT! Chiny - Filipiny,",
         country: "Odkryj Egzotykę Azji: Wycieczka Marzeń",
@@ -36,7 +36,7 @@ export const card = [
         tripLink: "/trip01"
     },
     {
-        imgURL: "/src/assets/destinations-images/gallery-5.jpg",
+        imgURL: "/destinations-images/gallery-5.jpg",
         tripDuration: "12 dni przygody",
         placeName: "",
         country: "Chiny",
@@ -45,7 +45,7 @@ export const card = [
         tripLink: "/trip01"
     },
     {
-        imgURL: "/src/assets/destinations-images/gallery-6.jpg",
+        imgURL: "/destinations-images/gallery-6.jpg",
         tripDuration: "12 dni przygody",
         placeName: "Shenzhen,",
         country: "Chiny",
