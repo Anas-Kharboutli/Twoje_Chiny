@@ -19,7 +19,7 @@ const CardTemplate = ({imgURL, tripDuration, placeName,
             <p className={styles.price}>{tripPrice}</p>
           </div>
           <Link to={tripLink} className={styles.arrowLink}>
-            <img src="/src/assets/destinations-images/icon-arrow-right-color.svg" alt="Icon" className={styles.arrow}/>
+            <img src="/destinations-images/icon-arrow-right-color.svg" alt="Icon" className={styles.arrow}/>
           </Link>
         </div>
       </figcaption>
