@@ -7,10 +7,12 @@ import styles from "./hero.module.css"
 gsap.registerPlugin(ScrollTrigger, Flip);
 
 const Hero = () => {
+
  useEffect(() => {
   console.clear();
 
   let flipCtx;
+  let scrollTriggerInstance;
 
   const createTween = () => {
     const galleryElement = document.querySelector("#gallery-8");
@@ -20,7 +22,10 @@ const Hero = () => {
 
     console.log(flipCtx);
 
-    flipCtx && flipCtx.revert();
+    // Clean up previous instance
+    if (flipCtx) flipCtx.revert();
+    if (scrollTriggerInstance) scrollTriggerInstance.kill();
+    
     galleryElement.classList.remove(styles.galleryFinal);
 
     flipCtx = gsap.context(() => {
@@ -40,11 +45,17 @@ const Hero = () => {
           start: "center center",
           end: "+=100%",
           scrub: true,
-          pin: galleryElement.parentNode
-          // markers: true
+          pin: galleryElement.parentNode,
+          onRefresh: (self) => {
+            scrollTriggerInstance = self;
+          }
         }
       });
       tl.add(flip);
+      
+      // Store the ScrollTrigger instance
+      scrollTriggerInstance = tl.scrollTrigger;
+      
       return () => gsap.set(galleryItems, { clearProps: "all" });
     });
   };
@@ -53,9 +64,20 @@ const Hero = () => {
 
   window.addEventListener("resize", createTween);
 
+  // PROPER CLEANUP - prevents React errors on unmount
   return () => {
     window.removeEventListener("resize", createTween);
-    flipCtx && flipCtx.revert();
+    
+    // Kill ScrollTrigger first (unpins elements)
+    if (scrollTriggerInstance) {
+      scrollTriggerInstance.kill(true);
+    }
+    ScrollTrigger.getAll().forEach(st => st.kill(true));
+    
+    // Then revert context
+    if (flipCtx) {
+      flipCtx.revert();
+    }
   };
 }, []);
 
@@ -64,28 +86,28 @@ const Hero = () => {
       <div className={styles.galleryWrap}>
   <div className={`${styles.gallery} ${styles.galleryBento} ${styles["gallery--switch"]}`} id="gallery-8">
     <div className={styles.galleryItem}>
-      <img src="https://assets.codepen.io/16327/portrait-pattern-1.jpg" alt="" />
+      <img src="../../../public/Hero_images/3.png" alt="" />
     </div>
     <div className={styles.galleryItem}>
-      <img src="https://assets.codepen.io/16327/portrait-image-12.jpg" alt="" />
+      <img src="../../../public/Hero_images/2.png" alt="" />
     </div>
     <div className={styles.galleryItem}>
-      <img src="https://assets.codepen.io/16327/portrait-image-8.jpg" alt="" />
+      <img src="../../../public/Hero_images/1.png" alt="" />
     </div>
     <div className={styles.galleryItem}>
-      <img src="https://assets.codepen.io/16327/portrait-pattern-2.jpg" alt="" />
+      <img src="../../../public/Hero_images/4.png" alt="" />
     </div>
     <div className={styles.galleryItem}>
-      <img src="https://assets.codepen.io/16327/portrait-image-4.jpg" alt="" />
+      <img src="../../../public/Hero_images/5.png" alt="" />
     </div>
     <div className={styles.galleryItem}>
-      <img src="https://assets.codepen.io/16327/portrait-image-3.jpg" alt="" />
+      <img src="../../../public/Hero_images/6.png" alt="" />
     </div>
     <div className={styles.galleryItem}>
-      <img src="https://assets.codepen.io/16327/portrait-pattern-3.jpg" alt="" />
+      <img src="../../../public/Hero_images/7.png" alt="" />
     </div>
     <div className={styles.galleryItem}>
-      <img src="https://assets.codepen.io/16327/portrait-image-1.jpg" alt="" />
+      <img src="../../../public/Hero_images/8.png" alt="" />
     </div>
 
   </div>
