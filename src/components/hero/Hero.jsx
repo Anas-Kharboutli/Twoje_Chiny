@@ -1,96 +1,115 @@
-import styles from "./hero.module.css";
-import { useEffect, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
+import { useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Flip } from 'gsap/all';
+import styles from "./hero.module.css"
 
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+gsap.registerPlugin(ScrollTrigger, Flip);
 
 const Hero = () => {
-  const [viewBox, setViewBox] = useState("0 0 1200 800");
+ useEffect(() => {
+  console.clear();
 
-  useEffect(() => {
-    // Set initial viewBox based on screen size
-    const updateViewBox = () => {
-      const width = window.innerWidth;
-      if (width < 768) {
-        setViewBox("0 -100 1200 750"); // Mobile
-      } else if (width < 1024) {
-        setViewBox("0 0 1200 700"); // Tablet
-      } else {
-        setViewBox("0 0 1200 800"); // Desktop
-      }
-    };
+  let flipCtx;
 
-    updateViewBox();
-    window.addEventListener('resize', updateViewBox);
+  const createTween = () => {
+    const galleryElement = document.querySelector("#gallery-8");
+    const galleryItems = galleryElement?.querySelectorAll(`[class*="galleryItem"]`);
 
-    gsap
-      .timeline({
+    if (!galleryElement || !galleryItems?.length) return;
+
+    console.log(flipCtx);
+
+    flipCtx && flipCtx.revert();
+    galleryElement.classList.remove(styles.galleryFinal);
+
+    flipCtx = gsap.context(() => {
+      // Temporarily add the final class to capture the final state
+      galleryElement.classList.add(styles.galleryFinal);
+      const flipState = Flip.getState(galleryItems);
+      galleryElement.classList.remove(styles.galleryFinal);
+
+      const flip = Flip.to(flipState, {
+        simple: true,
+        ease: "expoScale(1, 5)"
+      });
+
+      const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: '.scrollDist',
-          start: '0 0',
-          end: '100% 100%',
-          scrub: 1
+          trigger: galleryElement,
+          start: "center center",
+          end: "+=100%",
+          scrub: true,
+          pin: galleryElement.parentNode
+          // markers: true
         }
-      })
-      .fromTo('.sky', {y: 0}, {y: -200}, 0)
-      .fromTo('.cloud1', {y: 100}, {y: -800}, 0)
-      .fromTo('.cloud2', {y: -150}, {y: -500}, 0)
-      .fromTo('.cloud3', {y: -50}, {y: -650}, 0)
-      .fromTo('.mountBg', {y: -10}, {y: -100}, 0)
-      .fromTo('.mountMg', {y: -30}, {y: -250}, 0)
-      .fromTo('.mountFg', {y: -50}, {y: -600}, 0);
-
-    const arrowBtn = document.querySelector('#arrow-btn');
-
-    arrowBtn.addEventListener('mouseenter', () => {
-      gsap.to('.arrow', {y: 10, duration: 0.8, ease: 'back.inOut(3)', overwrite: 'auto'});
+      });
+      tl.add(flip);
+      return () => gsap.set(galleryItems, { clearProps: "all" });
     });
+  };
+  
+  createTween();
 
-    arrowBtn.addEventListener('mouseleave', () => {
-      gsap.to('.arrow', {y: 0, duration: 0.5, ease: 'power3.out', overwrite: 'auto'});
-    });
+  window.addEventListener("resize", createTween);
 
-    arrowBtn.addEventListener('click', () => {
-      gsap.to(window, {scrollTo: innerHeight, duration: 1.5, ease: 'power1.inOut'});
-    });
-
-    return () => {
-      window.removeEventListener('resize', updateViewBox);
-    };
-  }, []);
+  return () => {
+    window.removeEventListener("resize", createTween);
+    flipCtx && flipCtx.revert();
+  };
+}, []);
 
   return (
     <>
-      <div className={`${styles.scrollDist} scrollDist`}></div>
-      <main className={styles.main}>
-        <svg viewBox={viewBox} xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-          <mask id="m">
-            <g className="cloud1">
-              <rect fill="#fff" width="100%" height="801" y="799" />
-              <image xlinkHref="https://assets.codepen.io/721952/cloud1Mask.jpg" width="1200" height="800"/>
-            </g>
-          </mask>
-          
-          <image className="sky" xlinkHref="https://assets.codepen.io/721952/sky.jpg" width="1400" height="800" />
-          <image className="mountBg" xlinkHref="/Hero_images/1.png" width="1200" height="500" y="200" x="-250"/>    
-          <image className="mountMg" xlinkHref="" width="1200" height="800"/>    
-          <image className="cloud2" xlinkHref="https://assets.codepen.io/721952/cloud2.png" width="1200" height="800"/>    
-          <image className="mountFg" xlinkHref="/Hero_images/3.png" width="2200" height="800" y="-50"/>
-          <image className="cloud1" xlinkHref="https://assets.codepen.io/721952/cloud1.png" width="1200" height="800"/>
-          <image className="cloud3" xlinkHref="https://assets.codepen.io/721952/cloud3.png" width="1200" height="800"/>
-          <text fill="#fff" x="450" y="200">WITAMY</text>
-          <polyline className="arrow" fill="#fff" points="599,250 599,289 590,279 590,282 600,292 610,282 610,279 601,289 601,250" />
-          
-          <g mask="url(#m)">
-            <rect fill="#fff" width="100%" height="100%" />      
-            <text x="420" y="200" fill="#162a43">W CHINACH</text>
-          </g>
-          
-          <rect id="arrow-btn" width="100" height="100" opacity="0" x="550" y="220" style={{cursor: "pointer"}}/>
-        </svg>
-      </main>
+      <div className={styles.galleryWrap}>
+  <div className={`${styles.gallery} ${styles.galleryBento} ${styles["gallery--switch"]}`} id="gallery-8">
+    <div className={styles.galleryItem}>
+      <img src="https://assets.codepen.io/16327/portrait-pattern-1.jpg" alt="" />
+    </div>
+    <div className={styles.galleryItem}>
+      <img src="https://assets.codepen.io/16327/portrait-image-12.jpg" alt="" />
+    </div>
+    <div className={styles.galleryItem}>
+      <img src="https://assets.codepen.io/16327/portrait-image-8.jpg" alt="" />
+    </div>
+    <div className={styles.galleryItem}>
+      <img src="https://assets.codepen.io/16327/portrait-pattern-2.jpg" alt="" />
+    </div>
+    <div className={styles.galleryItem}>
+      <img src="https://assets.codepen.io/16327/portrait-image-4.jpg" alt="" />
+    </div>
+    <div className={styles.galleryItem}>
+      <img src="https://assets.codepen.io/16327/portrait-image-3.jpg" alt="" />
+    </div>
+    <div className={styles.galleryItem}>
+      <img src="https://assets.codepen.io/16327/portrait-pattern-3.jpg" alt="" />
+    </div>
+    <div className={styles.galleryItem}>
+      <img src="https://assets.codepen.io/16327/portrait-image-1.jpg" alt="" />
+    </div>
+
+  </div>
+</div>
+<div className={styles.section}>
+  <h2>Here is some content</h2>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+</div>
     </>
   );
 };

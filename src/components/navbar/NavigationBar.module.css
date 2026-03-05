@@ -1,20 +1,17 @@
 nav { 
     font-family: var(--font-r);
-    position: fixed;
+    position: sticky;
     top: 0;
     z-index: 1000;
     width: 100%;
-    background-color: rgb(255, 255, 255);
-   
+    background-color: rgb(255, 255, 255);  
 }
 
 .navbar-container {
     display: grid;
     grid-template-columns: 0.5fr 1fr 0.5fr;
     backdrop-filter: blur(90px);
-    z-index: 1000;
-
-    
+    z-index: 1000;   
 }
 
 .logo {
