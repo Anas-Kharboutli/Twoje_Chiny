@@ -86,28 +86,28 @@ const Hero = () => {
       <div className={styles.galleryWrap}>
   <div className={`${styles.gallery} ${styles.galleryBento} ${styles["gallery--switch"]}`} id="gallery-8">
     <div className={styles.galleryItem}>
-      <img src="../../../public/Hero_images/3.png" alt="" />
+      <img src="/Hero_images/3.png" alt="" />
     </div>
     <div className={styles.galleryItem}>
-      <img src="../../../public/Hero_images/2.png" alt="" />
+      <img src="/Hero_images/2.png" alt="" />
     </div>
     <div className={styles.galleryItem}>
-      <img src="../../../public/Hero_images/1.png" alt="" />
+      <img src="/Hero_images/1.png" alt="" />
     </div>
     <div className={styles.galleryItem}>
-      <img src="../../../public/Hero_images/4.png" alt="" />
+      <img src="/Hero_images/4.png" alt="" />
     </div>
     <div className={styles.galleryItem}>
-      <img src="../../../public/Hero_images/5.png" alt="" />
+      <img src="/Hero_images/5.png" alt="" />
     </div>
     <div className={styles.galleryItem}>
-      <img src="../../../public/Hero_images/6.png" alt="" />
+      <img src="/Hero_images/6.png" alt="" />
     </div>
     <div className={styles.galleryItem}>
-      <img src="../../../public/Hero_images/7.png" alt="" />
+      <img src="/Hero_images/7.png" alt="" />
     </div>
     <div className={styles.galleryItem}>
-      <img src="../../../public/Hero_images/8.png" alt="" />
+      <img src="/Hero_images/8.png" alt="" />
     </div>
 
   </div>
