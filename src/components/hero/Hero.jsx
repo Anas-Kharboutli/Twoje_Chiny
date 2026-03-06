@@ -86,28 +86,28 @@ const Hero = () => {
       <div className={styles.galleryWrap}>
   <div className={`${styles.gallery} ${styles.galleryBento} ${styles["gallery--switch"]}`} id="gallery-8">
     <div className={styles.galleryItem}>
-      <img src="/Hero_images/3.png" alt="" />
+      <img src="https://assets.codepen.io/16327/portrait-pattern-1.jpg" alt="" />
     </div>
     <div className={styles.galleryItem}>
-      <img src="/Hero_images/2.png" alt="" />
+      <img src="https://assets.codepen.io/16327/portrait-image-12.jpg" alt="" />
     </div>
     <div className={styles.galleryItem}>
-      <img src="/Hero_images/1.png" alt="" />
+      <img src="https://assets.codepen.io/16327/portrait-image-8.jpg" alt="" />
     </div>
     <div className={styles.galleryItem}>
-      <img src="/Hero_images/4.png" alt="" />
+      <img src="https://assets.codepen.io/16327/portrait-pattern-2.jpg" alt="" />
     </div>
     <div className={styles.galleryItem}>
-      <img src="/Hero_images/5.png" alt="" />
+      <img src="https://assets.codepen.io/16327/portrait-image-4.jpg" alt="" />
     </div>
     <div className={styles.galleryItem}>
-      <img src="/Hero_images/6.png" alt="" />
+      <img src="https://assets.codepen.io/16327/portrait-image-3.jpg" alt="" />
     </div>
     <div className={styles.galleryItem}>
-      <img src="/Hero_images/7.png" alt="" />
+      <img src="https://assets.codepen.io/16327/portrait-pattern-3.jpg" alt="" />
     </div>
     <div className={styles.galleryItem}>
-      <img src="/Hero_images/8.png" alt="" />
+      <img src="https://assets.codepen.io/16327/portrait-image-1.jpg" alt="" />
     </div>
 
   </div>
