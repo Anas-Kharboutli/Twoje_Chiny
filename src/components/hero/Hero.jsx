@@ -83,7 +83,7 @@ const Hero = () => {
 
   return (
     <main>
-      <div className={styles.galleryWrap}>
+     <div className={styles.galleryWrap}>
   <div className={`${styles.gallery} ${styles.galleryBento} ${styles["gallery--switch"]}`} id="gallery-8">
     <div className={styles.galleryItem}>
       <img src="/Hero_images/1.jpg" alt="" />
@@ -133,6 +133,7 @@ const Hero = () => {
 
 </div>
     </main>
+   
   );
 };
 
