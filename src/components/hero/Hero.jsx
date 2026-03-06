@@ -35,9 +35,9 @@ const Hero = () => {
       galleryElement.classList.remove(styles.galleryFinal);
 
       const flip = Flip.to(flipState, {
-        simple: true,
-        ease: "expoScale(1, 5)"
-      });
+        simple: true, 
+         ease: "expoScale(1, 5)"
+      }); 
 
       const tl = gsap.timeline({
         scrollTrigger: {
