@@ -1,0 +1,124 @@
+
+
+.custom-shape-divider-top-1773001827 {   
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;  
+}
+
+.custom-shape-divider-top-1773001827 svg {
+    position: relative;
+    display: block;
+    width: calc(190% + 1.3px);
+    height: 120px;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1773001827 .shape-fill {
+    fill: #db1010;
+}
+
+.footerContent {
+    background-color: #db1010;
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0 0 3.5rem 2rem;   
+}
+
+.footerTitle h2 {
+    text-align: left;
+    line-height: 2;
+}
+
+.footerMedia {
+    display: flex;
+    text-align: center;
+    justify-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.socialMediaLinks  {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items:flex-end;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: white;   
+    padding-top: 1rem;   
+}
+
+.socialMediaLinks a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: white;  
+    font-size: 1rem; 
+    
+}
+
+.socialMediaLinks a:hover {
+    color: rgb(227, 237, 237);
+}
+
+.footerYoutubeIcon {
+    font-size: 2rem;
+}
+
+.footerFacebookIcon {
+font-size: 2rem;
+color: rgb(49, 62, 178);
+}
+
+.footerTiktokIcon {
+font-size: 2rem;
+color: black;
+}
+
+.footerInstagramIcon {
+  font-size: 2rem;
+  background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4);
+  border-radius: 0.25rem;
+  padding: 0.1rem;
+  color: rgb(249, 249, 249);
+}
+
+
+.footerNavigation {
+    display: flex;
+    text-align: center;
+    justify-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.FooterNavigationLinks  {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: white;   
+    padding-top: 1rem;   
+}
+
+.FooterNavigationLinks a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: white;  
+    font-size: 1rem; 
+    
+}
+
+.FooterNavigationLinks a:hover {
+    color: rgb(227, 237, 237);
+}
+ 

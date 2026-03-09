@@ -1,9 +1,9 @@
-import { Hero, TripsCard } from "../../utils/exports"
+import { Hero, TripsPackage } from "../../utils/exports"
 const Home = () => {
   return (
    <>
      <Hero />
-     <TripsCard />
+     <TripsPackage/>
   
    </>
 

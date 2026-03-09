@@ -9,6 +9,10 @@ import Contact from "../pages/contact/Contact";
 import PageRouting from "../pages/PageRouting";
 import FooterComponent from "../components/footer/FooterComponent";
 import LastTrips from "../pages/lastTrips/LastTrips"
+import PackageTemplate from "../components/tripsPackage/tripsPackageTemplate/PackageTemplate";
+import TripsPackage from "../components/tripsPackage/TripsPackage";
+import { ScrollToTop } from "../pages/PageRouting";
 
 export { NavigationBar, TripsCard, CardTemplate, Hero, 
-         Home, About, FAQS, Contact, PageRouting, FooterComponent, LastTrips}
+         Home, About, FAQS, Contact, PageRouting, FooterComponent, 
+         LastTrips, PackageTemplate, TripsPackage, ScrollToTop};
