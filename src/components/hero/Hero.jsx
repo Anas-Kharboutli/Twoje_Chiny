@@ -117,6 +117,7 @@ const Hero = () => {
 </div>
 <div className={styles.section} id='Packages'>
   <h2>Check our upcoming trips</h2>
+  <TripsPackage />
   
 </div>
     </main>
