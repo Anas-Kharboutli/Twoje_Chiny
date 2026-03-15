@@ -1,0 +1,23 @@
+.card p {
+    line-height: 1.5rem;
+    font-size: 1rem;
+}
+
+.locationIcon {
+    color: red;
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+}
+.card-img-top {
+    width: 18rem;
+    height: 14rem;
+    display: block;
+    transform: scale(1);
+    transition: transform 0.4s ease-in-out;
+    object-fit: cover;
+} 
+
+.btn {
+   width: 8rem;
+    height: 2.5rem; 
+}

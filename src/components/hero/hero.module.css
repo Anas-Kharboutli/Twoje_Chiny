@@ -102,3 +102,12 @@
   line-height: 1.8;
   margin-bottom: 1.5rem;
 }
+
+@media (min-width: 375px) {
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+}

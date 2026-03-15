@@ -17,7 +17,7 @@
     transform: scale(1);
     transition: transform 0.4s ease-in-out;
 }
-
+ 
 .figure:hover .cardImage {
     transform: scale(1.1);
 }

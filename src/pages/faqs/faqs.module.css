@@ -30,17 +30,9 @@
     font-family: var(--font-r) !important;
     transition: background-color 1s ease, color 0.4s ease;
 }
-
-.accordion-button .collapsed {
-    background-color: aqua !important;
-}
   
-.accordion-button:not(collapsed) {
-   
-}
-
 .accordion-button:hover {
-    border: 1.2px solid rgb(91, 91, 91);
+    border: 0.1px solid rgb(91, 91, 91);
 }
 
 .faqs-header {

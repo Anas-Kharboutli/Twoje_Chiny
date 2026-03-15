@@ -1,0 +1,47 @@
+form {
+    background-color: rgb(245, 192, 197);
+    border-radius: 30px;
+    padding: 2rem;
+}
+
+.formContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+form h3 {
+    text-align: start;
+    margin-bottom: 2rem;
+}
+
+.textArea {
+    margin: 0 !important;
+    width: 100% !important;
+}
+
+.formContainer .col-sm-10 {
+    
+    padding: 0,5rem !important;
+    flex: 0 0 100% !important;
+}
+
+.form-control {
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+form button {
+    display: block;
+
+}
+
+.textArea {
+    grid-column: 1 / -1; /* Span both columns */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+}
+.textArea .col-sm-10 {
+    max-width: 100% !important; /* 2/3 width for centered look */
+}

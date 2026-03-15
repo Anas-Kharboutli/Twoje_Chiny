@@ -3,7 +3,6 @@
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 4rem 2rem;
     background: #fff; /* Added - covers the fixed hero */
     z-index: 10; /* Added - ensures it's above hero */
 }
@@ -28,5 +27,15 @@
 @media (max-width: 768px) {
     .gallery {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width:375px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+    .trips-container {
+        margin-right: 1rem;
+        text-align: center;
     }
 }

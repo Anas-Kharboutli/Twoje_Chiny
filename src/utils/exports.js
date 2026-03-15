@@ -12,7 +12,13 @@ import LastTrips from "../pages/lastTrips/LastTrips"
 import PackageTemplate from "../components/tripsPackage/tripsPackageTemplate/PackageTemplate";
 import TripsPackage from "../components/tripsPackage/TripsPackage";
 import { ScrollToTop } from "../pages/PageRouting";
+import ContactForm from "../pages/contact/contactForm/ContactForm";
+import Trip01 from "../components/tripsPrograms/Trip01";
+import Trip02 from "../components/tripsPrograms/Trip02";
+import Trip03 from "../components/tripsPrograms/Trip03";
+
 
 export { NavigationBar, TripsCard, CardTemplate, Hero, 
          Home, About, FAQS, Contact, PageRouting, FooterComponent, 
-         LastTrips, PackageTemplate, TripsPackage, ScrollToTop};
+         LastTrips, PackageTemplate, TripsPackage, ScrollToTop, 
+         ContactForm, Trip01, Trip02, Trip03, };

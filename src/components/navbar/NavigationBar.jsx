@@ -42,6 +42,9 @@ const Menu = ({ onLinkClick }) => {
       <NavLink to="/faqs" onClick={onLinkClick} className={getLinkClass}>FAQs</NavLink>
     </li>
     <li className={styles['nav-item']}>
+      <NavLink to="/about-us" onClick={onLinkClick} className={getLinkClass}>About</NavLink>
+    </li>
+    <li className={styles['nav-item']}>
       <NavLink to="/contact" onClick={onLinkClick} className={getLinkClass}>Contact</NavLink>
     </li>
   </ul> 

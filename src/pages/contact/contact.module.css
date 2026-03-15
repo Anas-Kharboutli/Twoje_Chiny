@@ -1,0 +1,41 @@
+.mainContactSection {
+    margin: 3rem 3rem;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+}
+
+.contactsContainer h2{
+    text-align: start;
+    margin-bottom: 2rem;
+}
+
+.contacts {
+    display: grid;
+    grid-template-columns: 0.2fr 1fr;
+    gap: 0.5rem;
+    text-align: start;
+}
+
+.contacts span {
+    padding-top: 0.5rem;
+    font-size: 1.2rem;
+}
+.whatsappIcon {
+    font-size: 2.5rem;
+    color: #25D366;
+}
+
+.viberIcon {
+    font-size: 2.5rem;
+    color: #7360F2;
+}
+
+.wechatIcon {
+    font-size: 2.5rem;
+    color: #07C160;
+}
+
+.emailIcon {
+    font-size: 2.5rem;
+    color: #EA4335
+}

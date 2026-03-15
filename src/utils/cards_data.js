@@ -1,31 +1,32 @@
 export const card = [
     {
-        imgURL: "/destinations-images/gallery-1.jpg",
-        tripDuration: "3-15 WRZEŚNIA",
-        placeName: "Południowe Chiny",
-        country: "Szlakiem przygód i przypraw",
-        placeDescription: "Pola ryzowe, Miasto Feniksa, Góry Awatara, Sichuan",
-        tripPrice: "€2,500",
+        imgURL: "/destinations-images/Yunnan.jpg",
+        tripDuration: "10 days",
+        placeName: "Yunan Trip",
+        //country: "the far southwestern corner of China",
+        placeDescription: "the far southwestern corner of China",
+        tripPrice: "From €2,500",
         tripLink: "/trip01"
     },
     {
-        imgURL: "/destinations-images/gallery-2.jpg",
-        tripDuration: "13-26 PAŹDZIERNIKA",
-        placeName: "Shaolin Kung Fu,",
-        country: "Kraina Wiecznej Wiosny",
-        placeDescription: "",
-        tripPrice: "€1,200",
-        tripLink: "/trip01"
+        imgURL: "/destinations-images/Shenzhen.jpg",
+        tripDuration: "14 days",
+        placeName: "Shenzhen Trip",
+        //country: "Kraina Wiecznej Wiosny",
+        placeDescription: "southern China, specifically in the Guangdong Province",
+        tripPrice: "From €1,200",
+        tripLink: "/trip02"
     },
     {
-        imgURL: "/destinations-images/gallery-3.jpg",
-        tripDuration: "1-14 LISTOPADA",
-        placeName: "Metropolie i Tropiki,",
+        imgURL: "/destinations-images/Shanghai.jpg",
+        tripDuration: "10 days",
+        placeName: "Shanghai Trip",
         country: "Shenzhen, Hong Kong,",
-        placeDescription: "Drapacze chmur, kasyna i wyspy",
-        tripPrice: "€2,200",
-        tripLink: "/trip01"
+        placeDescription: "in the middle of the coastline, bordering the East China Sea",
+        tripPrice: "From €2,200",
+        tripLink: "/trip03"
     },
+    /*
     {
         imgURL: "/destinations-images/gallery-4.jpg",
         tripDuration: "6-17 GRUDNIA",
@@ -53,6 +54,7 @@ export const card = [
         tripPrice: "€3,000",
         tripLink: "/trip01"
     },
+    */
 ];
 
 
