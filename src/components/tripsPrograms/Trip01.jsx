@@ -77,7 +77,7 @@ const Trip01 = () => {
       highlights={highlights}
       tripDays={tripDays}
       tourType="Private"
-      tourIntensity="Comfortable"
+      tourIntensity="Comfortable / Mild Intensity"
     />
   );
 };

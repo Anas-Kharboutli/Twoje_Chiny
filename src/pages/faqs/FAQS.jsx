@@ -22,14 +22,14 @@ const FAQS = () => {
                 aria-controls={faq.id}
               > 
                 {faq.question}
-              </button>
+              </button> 
             </h2>
             <div 
               id={faq.id}
               className="accordion-collapse collapse" 
               data-bs-parent="#accordionExample"
             >
-              <div className="accordion-body">
+              <div className={`${styles["accordion-body"]} accordion-body`}>
                 {faq.answer.text && <p>{faq.answer.text}</p>}
                 {faq.answer.list && (
                   <ul>

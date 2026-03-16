@@ -1,12 +1,12 @@
 .faqs-container {
-    margin: 3rem 1rem 0;
+    margin: 1rem 4rem 2.5rem;
     padding-top: 2rem;
 }
 
 .accordion {
-    font-family: var(--font-r) !important;
+    font-family: var(--font-m) !important;
     line-height: 1.8rem;
-    
+    text-align: start;
 }
 
 .accordion-button {
@@ -48,6 +48,13 @@
 
 .accordion-item {
     margin-bottom: 1rem;  
+    border: 1px solid black;
 }
 
+@media (max-width: 426px) {
+    .faqs-container {
+    margin: 1rem 2rem 2.5rem;
+    padding-top: 2rem;
+}
+}
 

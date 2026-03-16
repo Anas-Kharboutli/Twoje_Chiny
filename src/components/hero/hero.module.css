@@ -105,6 +105,9 @@
 
 @media (min-width: 375px) {
 
+  .section {
+    padding-bottom: 0;
+  }
 .section h2 {
   font-size: 2rem;
   margin-bottom: 2rem;

@@ -1,3 +1,10 @@
+/* Card wrapper - ensure it fills container */
+.card {
+    width: 100%;
+    max-width: 18rem;   /* keeps card nice on large screens */
+    margin: 0 auto;     /* center card */
+}
+
 .card p {
     line-height: 1.5rem;
     font-size: 1rem;
@@ -8,8 +15,10 @@
     font-size: 1.2rem;
     margin-right: 0.5rem;
 }
+
+/* CRITICAL: Remove fixed width, make responsive */
 .card-img-top {
-    width: 18rem;
+    width: 100%; /* Fill card width */
     height: 14rem;
     display: block;
     transform: scale(1);
@@ -17,7 +26,16 @@
     object-fit: cover;
 } 
 
+/* Adjust image height on mobile */
+@media (max-width: 576px) {
+    .card img {
+        width: 14rem;
+        height: 12rem;
+
+    }
+}
+
 .btn {
-   width: 8rem;
+    width: 8rem;
     height: 2.5rem; 
 }

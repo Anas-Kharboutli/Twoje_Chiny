@@ -6,7 +6,7 @@ import { MdOutlineTour } from "react-icons/md";
 import { SiLevelsdotfyi } from "react-icons/si";
 import { PiBatteryVerticalHighLight } from "react-icons/pi";
 import { Link } from "react-router-dom";
-
+ 
 const TripsProgramTemplate = ({
   tripTitle,
   placeLocation,
@@ -112,7 +112,7 @@ const TripsProgramTemplate = ({
 
           <span>
             <PiBatteryVerticalHighLight className={styles.highlightIcon}/>
-            Tour Highlights:
+           <b> Tour Highlights: </b>
           </span>
 
           <ul>

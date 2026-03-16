@@ -123,3 +123,16 @@ color: black;
     color: rgb(227, 237, 237);
 }
  
+
+@media (max-width: 425px) {
+    .footerContent {
+        grid-template-columns: 1fr 1fr;
+    }
+    .footerContent > :first-child {
+        grid-column: 1 / -1;
+    }
+
+    .footerTitle {
+        margin: 1.5rem 0;
+    }
+}

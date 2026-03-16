@@ -8,22 +8,22 @@ const Contact = () => {
   return (
     <section className={styles.mainContactSection}>
   <div className={styles.contactsContainer}>
-<h2>Contact us @</h2>
+<h2>Contact us at:</h2>
  <div className={styles.contacts}>
 <FaWhatsappSquare className={styles.whatsappIcon}/>
 <span>0999999999</span>
 <FaViber className={styles.viberIcon}/>
-<span>09999999</span>
-<IoLogoWechat className={styles.wechatIcon}/>
-<span>xxxxx</span>
+<span>0999999999</span>
 <MdEmail className={styles.emailIcon}/>
 <span>info@twojechiny.com</span>
+<IoLogoWechat className={styles.wechatIcon}/>
+<span>xxxxx</span>
       </div>
   </div>
      
       
 <div className={styles.contactFormContainer}>
-  <ContactForm />
+  <ContactForm /> 
 </div>
 
     

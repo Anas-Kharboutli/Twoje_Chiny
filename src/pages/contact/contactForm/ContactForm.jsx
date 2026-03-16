@@ -38,7 +38,7 @@ const ContactForm = () => {
       className={`${styles["form-control"]} form-control`} name="name"/>
     </div>
   </div>
-  
+   
   <div className={`${styles["row mb-3"]} row mb-3 `}>
     <div className={`${styles["col-sm-10"]} col-sm-10`}>
       <input type="text" placeholder="Last Name" required
@@ -71,7 +71,7 @@ const ContactForm = () => {
   
   </div>
 
-  <button type="submit" value="send" className="btn btn-primary">Send</button>
+  <button type="submit" value="send" className="btn btn-danger">Send</button>
   
 </form>
 

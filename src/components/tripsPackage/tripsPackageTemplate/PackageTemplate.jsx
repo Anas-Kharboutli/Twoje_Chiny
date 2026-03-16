@@ -7,7 +7,7 @@ const PackageTemplate = ({imgURL, tripDuration, placeName,
                        placeDescription, tripPrice, tripLink}) => {
   return (
      <>
-    <div className={`${styles.card} card`} style={{width: "18rem"}}>
+    <div className={`${styles.card} card`}>
   <img src={imgURL} className={`${styles["card-img-top"]} card-img-top`} alt="trip package img"/>
   <div className="card-body">
     <h3 className={`${styles["card-title"]} card-title`}>{placeName}</h3>
