@@ -172,9 +172,17 @@
 
 }
 
-@media (max-width: 425px) {
+@media (max-width: 426px) {
   .programTitleDetails {
     margin: 1.5rem 1.5rem 0.3rem;
+}
+
+.col-8 {
+  padding: 0 !important;
+}
+
+.stickyNav a {
+  padding: 0.3rem 0;
 }
 
   .programOverview {
@@ -192,7 +200,7 @@
     display: flex;
     align-items: center;
     gap: 0.3rem;
-    line-height: 0rem;
+ 
 }
   
   .programCarousell {
@@ -217,4 +225,9 @@
   width: 90%;
   margin: 1.5rem auto;
 }
+
+.contactButton {
+
+}
+ 
 }

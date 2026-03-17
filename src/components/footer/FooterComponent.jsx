@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { FaYoutubeSquare, FaFacebook  } from "react-icons/fa";
 import { AiFillTikTok } from "react-icons/ai";
 import { FaInstagram } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const FooterMedia = () => (
   <> 
@@ -45,7 +46,11 @@ const FooterComponent = () => {
     </svg>
 </div>
 
-<div className={styles.footerContent}>
+<motion.div
+    initial={{ opacity: 0, scale: 0.50}}
+    animate={{ opacity: 1, scale: 1}}
+    transition={{ duration: 1}}
+    className={styles.footerContent}>
 
   <div className={styles.footerTitle}>
     <h2>Discover the beauty of China, where every journey becomes a story</h2>
@@ -59,7 +64,7 @@ const FooterComponent = () => {
     <FooterNavigation />
   </div>
 
-</div>
+</motion.div>
 
 </footer>
   )

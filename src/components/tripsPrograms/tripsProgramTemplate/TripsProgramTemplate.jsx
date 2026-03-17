@@ -131,7 +131,7 @@ const TripsProgramTemplate = ({
         <div className="row">
 
           {/* NAV */}
-          <div className="col-4">
+          <div className={`${styles["col-4"]} col-4`}>
             <div id="list-example" className={`list-group ${styles.stickyNav}`}>
               {tripDays.map((day, index) => (
                <a 
@@ -146,7 +146,7 @@ const TripsProgramTemplate = ({
           </div>
 
           {/* CONTENT */}
-          <div className="col-8">
+          <div className={`${styles["col-8"]} col-8`}>
             <div
               className={`scrollspy-example ${styles.scrollableContent}`}
               tabIndex="0"

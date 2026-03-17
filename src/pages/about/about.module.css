@@ -1,0 +1,95 @@
+/* Container - Split Layout */
+.aboutPageContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 50/50 split */
+  min-height: 100vh;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Video Container - Left Half */
+.videoContainer {
+  position: relative;
+  height: 100vh; /* Full viewport height */
+}
+
+/* Sticky Video */
+.stickyVideo {
+  position: fixed;
+  top: 100px; /* Adjust based on navbar height */
+  height: calc(100vh - 120px); /* Subtract navbar + padding */
+  max-height: 600px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.stickyVideo video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Content - Right Half */
+.AboutDetails {
+  padding: 2rem 1rem;
+  min-height: 150vh; /* Taller than viewport to enable scrolling */
+}
+
+.AboutDetails h1 {
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.AboutDetails p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+/* Tablet (768px to 991px) */
+@media (max-width: 991px) {
+  .aboutPageContainer {
+    grid-template-columns: 1fr; /* Stack vertically */
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .videoContainer {
+    height: auto;
+  }
+
+  .stickyVideo {
+    position: sticky; /* No sticky on tablet */
+    top: 0;
+    left: 0;
+    height: 400px;
+    max-height: none;
+  }
+
+  .AboutDetails {
+    padding: 1rem;
+    min-height: auto;
+  }
+}
+
+/* Mobile (below 768px) */
+@media (max-width: 767px) {
+  .stickyVideo {
+    height: 300px;
+    border-radius: 8px;
+  }
+
+  .AboutDetails h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .AboutDetails p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
