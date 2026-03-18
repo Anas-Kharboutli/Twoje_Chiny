@@ -16,9 +16,10 @@ import ContactForm from "../pages/contact/contactForm/ContactForm";
 import Trip01 from "../components/tripsPrograms/Trip01";
 import Trip02 from "../components/tripsPrograms/Trip02";
 import Trip03 from "../components/tripsPrograms/Trip03";
+import ImageSlider from "../components/imageSlider/ImageSlider";
 
 
 export { NavigationBar, TripsCard, CardTemplate, Hero, 
          Home, About, FAQS, Contact, PageRouting, FooterComponent, 
          LastTrips, PackageTemplate, TripsPackage, ScrollToTop, 
-         ContactForm, Trip01, Trip02, Trip03, };
+         ContactForm, Trip01, Trip02, Trip03, ImageSlider, };

@@ -1,0 +1,69 @@
+/* Desktop - default */
+.main {
+  width: 100%;
+  height: 100vh;
+  max-height: 880px;
+  overflow: hidden;
+  background: #f3cccc;
+  position: relative;
+}
+
+.mainBoxes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.photoBox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.mainClose {
+  position: absolute;
+  cursor: pointer;
+  z-index: 200;
+  pointer-events: all;
+}
+
+.mainClose svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+  .main {
+    max-height: 700px;
+  }
+}
+
+/* Mobile landscape & Tablet portrait (481px - 768px) */
+@media (max-width: 768px) {
+  .main {
+    height: 80vh;
+    max-height: 600px;
+  }
+
+  .photoBox {
+    /* Adjust via JS for smaller screens */
+  }
+}
+
+/* Mobile portrait (below 481px) */
+@media (max-width: 480px) {
+  .main {
+    height: 70vh;
+    max-height: 500px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 375px) {
+  .main {
+    height: 60vh;
+    max-height: 450px;
+  }
+}

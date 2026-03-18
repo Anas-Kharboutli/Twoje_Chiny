@@ -1,7 +1,7 @@
 import styles from "./about.module.css";
 import { TypeAnimation } from "react-type-animation";
 import { FaRoute, FaMapMarkedAlt, FaHotel, FaUserTie } from "react-icons/fa";
-
+import ImageSlider from "../../components/imageSlider/ImageSlider";
 
 const About = () => {
   return (
@@ -60,6 +60,10 @@ Her extensive local knowledge allows her to craft unique journeys that go beyond
   </div>
 </div>
 
+<div>
+<h1>Memories with our clients</h1>
+  <ImageSlider />
+</div>
 
 
     </section>

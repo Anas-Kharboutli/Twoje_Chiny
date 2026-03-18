@@ -109,14 +109,12 @@
 
 /* Tablet (768px to 991px) */
 @media (max-width: 991px) {
-  .aboutPageContainer {
-    grid-template-columns: 1fr; /* Stack vertically */
-    gap: 1rem;
-    padding: 1rem;
-  }
 
   .videoContainer {
     height: auto;
+    grid-template-columns: 1fr; /* Stack vertically */
+    gap: 1rem;
+    padding: 1rem;
   }
 
   .stickyVideo {
@@ -148,4 +146,12 @@
     font-size: 1rem;
     line-height: 1.6;
   }
+}
+
+@media (max-width: 426px) {
+  .offersContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
 }
