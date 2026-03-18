@@ -89,28 +89,28 @@ const Hero = () => {
      <div ref={wrapperRef} className={styles.galleryWrap}>
   <div    ref={galleryRef} className={`${styles.gallery} ${styles.galleryBento} ${styles["gallery--switch"]}`} id="gallery-8">
     <div className={styles.galleryItem}>
-      <img src="/Hero_images/1.jpg" alt="" />
+      <img src="/Hero_images/1.webp" alt="" />
     </div>
     <div className={styles.galleryItem}>
-      <img src="/Hero_images/2.jpg" alt="" />
+      <img src="/Hero_images/3.webp" alt="" />
     </div>
     <div className={styles.galleryItem}>
-      <img src="/Hero_images/3.jpg" alt="" />
+      <img src="/Hero_images/4.webp" alt="" />
     </div>
     <div className={styles.galleryItem}>
-      <img src="/Hero_images/4.jpg" alt="" />
+      <img src="/Hero_images/7.webp" alt="" />
     </div>
     <div className={styles.galleryItem}>
-      <img src="/Hero_images/5.jpg" alt="" />
+      <img src="/Hero_images/5.webp" alt="" />
     </div>
     <div className={styles.galleryItem}>
-      <img src="/Hero_images/6.jpg" alt="" />
+      <img src="/Hero_images/6.webp" alt="" />
     </div>
     <div className={styles.galleryItem}>
-      <img src="/Hero_images/7.jpg" alt="" />
+      <img src="/Hero_images/8.webp" alt="" />
     </div>
     <div className={styles.galleryItem}>
-      <img src="/Hero_images/8.jpg" alt="" />
+      <img src="/Hero_images/2.webp" alt="" />
     </div>
 
   </div>

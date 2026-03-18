@@ -1,5 +1,11 @@
 /* Container - Split Layout */
 .aboutPageContainer {
+  
+}
+
+/* Video Container - Left Half */
+.videoContainer {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr; /* 50/50 split */
   min-height: 100vh;
@@ -7,17 +13,12 @@
   padding: 2rem;
   max-width: 1400px;
   margin: 0 auto;
-}
 
-/* Video Container - Left Half */
-.videoContainer {
-  position: relative;
-  height: 100vh; /* Full viewport height */
 }
 
 /* Sticky Video */
 .stickyVideo {
-  position: fixed;
+  position: sticky;
   top: 100px; /* Adjust based on navbar height */
   height: calc(100vh - 120px); /* Subtract navbar + padding */
   max-height: 600px;
@@ -50,6 +51,61 @@
   color: #555;
   margin-bottom: 1.5rem;
 }
+
+.aboutOffers {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.aboutOffers h1 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #333;
+}
+
+.offersContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 3rem;
+}
+
+.offerItem {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  gap: 1rem;
+  min-width: 150px;
+}
+
+.toursIcon {
+    color: rgb(134, 212, 18);
+    font-size: 4rem;
+}
+
+.routeIcon {
+    color: rgb(230, 51, 60);
+    font-size: 4rem;
+}
+
+.hotelIcon {
+    color: rgb(29, 26, 228);
+    font-size: 4rem;
+}
+
+.consultIcon {
+  font-size: 4rem;
+}
+
+.offerItem h4 {
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+}
+
+
+
+
 
 /* Tablet (768px to 991px) */
 @media (max-width: 991px) {
