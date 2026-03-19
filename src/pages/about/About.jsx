@@ -2,6 +2,7 @@ import styles from "./about.module.css";
 import { TypeAnimation } from "react-type-animation";
 import { FaRoute, FaMapMarkedAlt, FaHotel, FaUserTie } from "react-icons/fa";
 import ImageSlider from "../../components/imageSlider/ImageSlider";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -10,7 +11,7 @@ const About = () => {
       <div className={styles.videoContainer}>
         <div className={styles.stickyVideo}>
           <video autoPlay muted loop playsInline>
-            <source src="/videos/about-video.webm" type="video/webm" />
+            <source src="/videos/website-video.webm" type="video/webm" />
             <source src="/videos/about-video1.mp4" type="video/mp4" />
           </video>
         </div>
@@ -60,10 +61,19 @@ Her extensive local knowledge allows her to craft unique journeys that go beyond
   </div>
 </div>
 
-<div>
+<div className={styles.imageSliderContainer}>
 <h1>Memories with our clients</h1>
   <ImageSlider />
 </div>
+
+
+ <div className={styles.contactButoonContainer}>
+        <Link to="/contact">
+          <button className={`${styles.contactButton} btn btn-danger`}>
+            Book With Us
+          </button>
+        </Link>
+      </div>
 
 
     </section>

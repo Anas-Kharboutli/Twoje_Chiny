@@ -42,18 +42,17 @@ import image37 from "../../../public/Memories/37.webp";
 import image38 from "../../../public/Memories/38.webp";
 import image39 from "../../../public/Memories/39.webp";
 
-
 const ImageSlider = () => {
   const mainRef = useRef(null);
   const mainBoxesRef = useRef(null);
   const mainCloseRef = useRef(null);
 
   const images = [
-     image1, image2, image3, image4, image5, image6, image7, image8,
-     image9, image10, image11, image12, image13, image14, image15, image16,
-     image17, image18, image19, image20, image21, image22, image23, image24,
-     image25, image26, image27, image28, image29, image30, image31, image32,
-     image33, image34, image35, image36, image37, image38, image39
+    image1, image2, image3, image4, image5, image6, image7, image8,
+    image9, image10, image11, image12, image13, image14, image15, image16,
+    image17, image18, image19, image20, image21, image22, image23, image24,
+    image25, image26, image27, image28, image29, image30, image31, image32,
+    image33, image34, image35, image36, image37, image38, image39
   ];
 
   useEffect(() => {
@@ -68,20 +67,31 @@ const ImageSlider = () => {
     const mainClose = mainCloseRef.current;
     const main = mainRef.current;
 
+    // Responsive: 2 columns at 425px, 3 columns for everything else
+    const isMobile = window.innerWidth <= 426;
+    
     // Create photo boxes
-    for (let i = 0; i < 12; i++) {
-      if (i % 4 === 0) column++;
+    for (let i = 0; i < (isMobile ? 8 : 12); i++) {
+      if (isMobile) {
+        // 2 columns: 4 items per column
+        if (i % 4 === 0) column++;
+      } else {
+        // 3 columns: 4 items per column
+        if (i % 4 === 0) column++;
+      }
 
       const b = document.createElement('div');
       mainBoxes.appendChild(b);
 
+      const imageIndex = i % images.length;
+
       gsap.set(b, {
         attr: { id: 'b' + i, class: `${styles.photoBox} pb-col${column}` },
-        backgroundImage: `url(${images[i]})`,
+        backgroundImage: `url(${images[imageIndex]})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         overflow: 'hidden',
-        x: [60, 280, 500][column],
+        x: isMobile ? [60, 280][column] : [60, 280, 500][column],
         width: 400,
         height: 640,
         borderRadius: 20,
@@ -90,9 +100,14 @@ const ImageSlider = () => {
       });
 
       b.tl = gsap.timeline({ paused: true, repeat: -1 })
-        .fromTo(b, 
-          { y: [-575, 800, 800][column], rotation: -0.05 }, 
-          { duration: [40, 35, 26][column], y: [800, -575, -575][column], rotation: 0.05, ease: 'none' }
+        .fromTo(b,
+          { y: isMobile ? [-575, 800][column] : [-575, 800, 800][column], rotation: -0.05 },
+          { 
+            duration: isMobile ? [40, 35][column] : [40, 35, 26][column], 
+            y: isMobile ? [800, -575][column] : [800, -575, -575][column], 
+            rotation: 0.05, 
+            ease: 'none' 
+          }
         )
         .progress((i % 4) / 4);
     }
@@ -101,7 +116,7 @@ const ImageSlider = () => {
       let classStr = 'pb-col0';
       if (box.classList.contains('pb-col1')) classStr = 'pb-col1';
       if (box.classList.contains('pb-col2')) classStr = 'pb-col2';
-      
+
       const children = mainBoxes.children;
       for (let i = 0; i < children.length; i++) {
         const b = children[i];
@@ -124,7 +139,14 @@ const ImageSlider = () => {
     gsap.timeline({ onStart: playBoxes })
       .set(main, { perspective: 800 })
       .set(`.${styles.photoBox}`, { opacity: 1, cursor: 'pointer' })
-      .set(mainBoxes, { left: '75%', xPercent: -50, width: 1200, rotationX: 14, rotationY: -15, rotationZ: 10 })
+      .set(mainBoxes, { 
+        left: isMobile ? '50%' : '75%', 
+        xPercent: -50, 
+        width: isMobile ? 700 : 1200, 
+        rotationX: 14, 
+        rotationY: -15, 
+        rotationZ: 10 
+      })
       .set(mainClose, { autoAlpha: 0, width: 60, height: 60, left: -30, top: -31, pointerEvents: 'none' })
       .fromTo(main, { autoAlpha: 0 }, { duration: 0.6, ease: 'power2.inOut', autoAlpha: 1 }, 0.2);
 
@@ -133,12 +155,12 @@ const ImageSlider = () => {
       if (currentImg) return;
       if (delayedPlay) delayedPlay.kill();
       pauseBoxes(e.currentTarget);
-      
+
       const photoBoxes = mainBoxes.querySelectorAll(`.${styles.photoBox}`);
-      gsap.to(photoBoxes, { 
-        duration: 0.2, 
-        overwrite: 'auto', 
-        opacity: function(i, t) { return (t === e.currentTarget) ? 1 : 0.33 } 
+      gsap.to(photoBoxes, {
+        duration: 0.2,
+        overwrite: 'auto',
+        opacity: function (i, t) { return (t === e.currentTarget) ? 1 : 0.33 }
       });
       gsap.fromTo(e.currentTarget, { zIndex: 100 }, { duration: 0.2, scale: 0.62, overwrite: 'auto', ease: 'power3' });
     };
@@ -170,7 +192,16 @@ const ImageSlider = () => {
         if (currentImg) {
           gsap.timeline({ defaults: { ease: 'expo.inOut' } })
             .to(mainClose, { duration: 0.1, autoAlpha: 0, overwrite: true }, 0)
-            .to(mainBoxes, { duration: 0.5, scale: 1, left: '75%', width: 1200, rotationX: 14, rotationY: -15, rotationZ: 10, overwrite: true }, 0)
+            .to(mainBoxes, { 
+              duration: 0.5, 
+              scale: 1, 
+              left: isMobile ? '50%' : '75%', 
+              width: isMobile ? 700 : 1200, 
+              rotationX: 14, 
+              rotationY: -15, 
+              rotationZ: 10, 
+              overwrite: true 
+            }, 0)
             .to(photoBoxes, { duration: 0.6, opacity: 1, ease: 'power4.inOut' }, 0)
             .to(currentImg, { duration: 0.6, width: 400, height: 640, borderRadius: 20, x: currentImgProps.x, y: currentImgProps.y, scale: 0.5, rotation: 0, zIndex: 1 }, 0);
           currentImg = undefined;

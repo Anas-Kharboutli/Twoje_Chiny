@@ -52,26 +52,32 @@ const FooterComponent = () => {
         </svg>
       </div>
 
-      <motion.div
-        variants={cardVariants}
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+      <div
         className={styles.footerContent}
       >
         <div className={styles.footerTitle}>
           <h2>Discover the beauty of China, where every journey becomes a story</h2>
         </div>
         
-        <div className={styles.footerMedia}>
+        <motion.div
+        variants={cardVariants}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className={styles.footerMedia}>
           <FooterMedia />
-        </div>
+        </motion.div>
 
         <div className={styles.footerNavigation}>
           <FooterNavigation />
         </div>
-      </motion.div>
+        
+      </div>
+      <div className={styles.copyRights}>
+        <span>&copy; 2026 Twoje Chiny. All rights reserved.</span>
+      </div>
+      
     </footer>
   )
 }

@@ -3,9 +3,11 @@ import TripsProgramTemplate from "./tripsProgramTemplate/TripsProgramTemplate";
 const Trip03 = () => {
 
   const carouselImages = [
-    "/Hero_images/1.jpg",
-    "/Hero_images/2.jpg",
-    "/Hero_images/3.jpg"
+    "/Hero_images/1.webp",
+    "/Hero_images/2.webp",
+    "/Hero_images/3.webp",
+    "/Hero_images/4.webp",
+    "/Hero_images/5.webp",
   ];
 
   const highlights = [
